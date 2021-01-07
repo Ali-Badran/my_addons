@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="basic calculator assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/basic_calculator/static/src/scss/basic_calculator_layout.scss"/>
+<!--                <script type="text/javascript" src="/basic_calculator/static/src/js/animal.js"></script>-->
+<!--                <script type="text/javascript" src="/basic_calculator/static/src/js/dog.js"></script>-->
+<!--                <script type="text/javascript" src="/basic_calculator/static/src/js/cat.js"></script>-->
+<!--                <script type="text/javascript" src="/basic_calculator/static/src/js/temp.js"></script>-->
+                <script type="text/javascript" src="/basic_calculator/static/src/js/calculator.js"></script>
+<!--                <script type="text/javascript" src="/basic_calculator/static/src/js/calculations.js"></script>-->
+                <script type="text/javascript" src="/basic_calculator/static/src/js/calculator_item.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

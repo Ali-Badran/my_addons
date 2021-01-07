@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="action_hello_world" model="ir.actions.client">
+            <field name="name">Tutorial Demo</field>
+            <field name="tag">hello_world.action</field>
+        </record>
+
+        <menuitem name="Hello World" id="hello_world_menu_root" action="action_hello_world"/>
+
+<!--        <record id="hr_employee_view_form_isc" model="ir.ui.view">-->
+<!--            <field name="name">hr.employee.view.form.inherit.isc</field>-->
+<!--            <field name="model">hr.employee</field>-->
+<!--            <field name="inherit_id" ref="hr.view_employee_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='work_location']" position="after">-->
+<!--                    <button string="Test Javascript" custom="click" />-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="view_employee_form_training_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form.training.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority">24</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mobile_phone']" position="after">
+                    <field name="color_p" widget="color"/>
+                    <field name="sel" widget="radio" class='test-class'/>
+                    <field name="long" widget="IntPercent"/>
+<!--                    <field name="p"/>-->
+                </xpath>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

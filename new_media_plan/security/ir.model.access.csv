@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_new_media_plans,new_media_plans,model_media_plan_new,new_media_plans.group_media_plan_user,1,1,1,1
+access_new_media_plans_coverage_types,new_coverage_types,model_coverage_types,new_media_plans.group_media_plan_user,1,1,1,1
+access_new_media_plans_coverage_ids,new_coverage_ids,model_coverage_ids,new_media_plans.group_media_plan_user,1,1,1,1
+access_new_media_plans_donation_type,new_donation_type,model_donation_type,new_media_plans.group_media_plan_user,1,1,1,1
+access_new_media_plans_sub_sectore,new_sub_sectore,model_sub_sector,new_media_plans.group_media_plan_user,1,1,1,1
+access_new_media_plans_main_sector,new_main_sector,model_main_sector,new_media_plans.group_media_plan_user,1,1,1,1
+access_media_coverage_base_user,media.coverage.base.user,model_media_coverage,base.group_user,1,0,0,0
+access_media_coverage_user,media.coverage.user,model_media_coverage,new_media_plans.group_media_plan_user,1,1,1,1
+access_coverage_type_base_user,coverage.type.base.user,model_coverage_type,base.group_user,1,0,0,0
+access_coverage_type_user,coverage.type.user,model_coverage_type,new_media_plans.group_media_plan_user,1,1,1,1
+access_coverage_type_image_base_user,coverage.type.image.base.user,model_coverage_type_image,base.group_user,1,0,0,0
+access_coverage_type_image_user,coverage.type.image.user,model_coverage_type_image,new_media_plans.group_media_plan_user,1,1,1,1
+access_website_settings_base_user,website.settings.base.user,model_website_settings,base.group_user,1,0,0,0
+access_website_settings_user,website.settings.user,model_website_settings,new_media_plans.group_media_plan_user,1,1,0,0
+access_partner_image_base_user,partner.image.base.user,model_partner_image,base.group_user,1,0,0,0
+access_partner_image_user,partner.image.user,model_partner_image,new_media_plans.group_media_plan_user,1,1,1,1

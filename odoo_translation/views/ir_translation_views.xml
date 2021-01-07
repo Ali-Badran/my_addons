@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="ir_translation_view_tree_transifex_temp" model="ir.ui.view">
+            <field name="name">ir.translation.transifex.temp</field>
+            <field name="model">ir.translation</field>
+            <field name="inherit_id" ref="base.view_translation_tree"/>
+            <field name="arch" type="xml">
+                <field name="lang" position="after">
+                    <field name="module"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

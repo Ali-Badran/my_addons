@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record id="view_employee_map" model="ir.ui.view">
+			<field name="name">view.employee.map</field>
+			<field name="model">hr.employee</field>
+			<field name="arch" type="xml">
+				<map library="geometry" string="Map" lat="latitude"
+					lng="longitude"
+					colors="yellow:gender=='male';green:gender=='female'">
+					<field name="id" />
+					<field name="latitude" />
+					<field name="longitude" />
+					<field name="name" />
+					<field name="gender" />
+					<templates>
+						<t t-name="kanban-box">
+							<div class="oe_kanban_global_click o_project_kanban">
+								<div class="o_kanban_image">
+									<t>
+									</t>
+								</div>
+								<div class="oe_kanban_details">
+									<ul>
+										<li>
+											<field name="name" />
+										</li>
+									</ul>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</map>
+			</field>
+		</record>
+
+        <record id="view_employee_form_isc_extended" model="ir.ui.view">
+            <field name="name">view.employee.form.isc.extended</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='public']" position="after">
+                    <page string="test">
+                            <group name="location">
+                                <field name="latitude"/>
+                                <field name="longitude"/>
+                            </group>
+                            <group>
+                                <field name="home_location"
+                                       widget="place_autocomplete" class="oe_inline"/>
+                            </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+
+        <record id="hr.open_view_employee_list_my" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>
