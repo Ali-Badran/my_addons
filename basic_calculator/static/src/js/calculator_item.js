@@ -24,19 +24,16 @@ var CalculatorItem = Widget.extend({
     },
 
     _onClick: function (event) {
-        console.log("On Click!!", event, $(event.target));
         if ($(event.target).is('i') === false && $(event.target).is('a') === false) {
             event.stopPropagation();
         }
     },
 
     _insertValue: function(event) {
-        console.log('Insert Value', event, event.target);
         this.calculator.insertValue(event.target.value);
     },
 
     _insertOperator: function(event) {
-        console.log('Insert Value', event, event.target);
         this.calculator.insertOperator(event.target.value);
     },
 
@@ -66,18 +63,18 @@ var CalculatorItem = Widget.extend({
 
     _onKeyDown: function(event) {
         var keyName = event.originalEvent.code;
-        console.log('Key Down', event, event.keyCode, event.originalEvent.code);
         if (keyName in this.keyboardNumbers){
-            console.log('Inserting', this.keyboardNumbers[keyName]);
             this.calculator.insertValue(this.keyboardNumbers[keyName]);
+            event.preventDefault();
         }
         else if (keyName in this.keyboardOperators){
-            console.log('Inserting', this.keyboardOperators[keyName]);
-            this.calculator.insertValue(this.keyboardOperators[keyName]);
+            this.calculator.insertOperator(this.keyboardOperators[keyName]);
+            event.preventDefault();
         }
         else if (keyName in this.keyboardControls){
             if (this.keyboardControls[keyName] === 'equals'){
                 this.calculator.calculate();
+                event.preventDefault();
             }
         }
     },
