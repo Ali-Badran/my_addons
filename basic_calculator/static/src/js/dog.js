@@ -8,6 +8,7 @@ odoo.define('basic_calculator.Dog', function(require){
         },
 
         bark: function(){
+            this.eat();
             console.log('woof');
         },
     });
