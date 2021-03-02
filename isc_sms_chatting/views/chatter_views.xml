@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_chatter_sms_settings_form" model="ir.ui.view">
+            <field name="name">view.chatter.sms.settings.form</field>
+            <field name="model">chatter.sms.settings</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="messaging_api" placeholder="The API should have two variable only, one for the mobile number to be set as {sms_chatting_mobile_no} and the another for the message to be set as {sms_chatting_message}" style="min-height: 60px;"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_chatter_sms_settings_tree" model="ir.ui.view">
+            <field name="name">view.chatter.sms.settings.tree</field>
+            <field name="model">chatter.sms.settings</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="messaging_api"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="open_chatter_sms_settings_view" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">chatter.sms.settings</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="SMS Chatting" id="menu_chatter_sms_base" groups="base.group_system" sequence="100"/>
+
+        <menuitem id="menu_chatter_sms_settings" name="Settings" parent="menu_chatter_sms_base"
+                  action="open_chatter_sms_settings_view" sequence="1"/>
+    </data>
+</odoo>

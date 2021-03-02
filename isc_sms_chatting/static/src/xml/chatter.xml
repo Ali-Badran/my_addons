@@ -2,7 +2,7 @@
 <template>
     <t t-extend="mail.chatter.Buttons">
         <t t-jquery='button:first' t-operation="before">
-            <button type="button" class="btn btn-link asb_chatter_button_send_sms" title="Send SMS">
+            <button type="button" class="btn btn-link isc_chatter_button_send_sms" title="Send SMS">
                 <i class="fa fa-envelope-o" role="img"/> SMS
             </button>
         </t>

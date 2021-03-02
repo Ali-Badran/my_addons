@@ -6,7 +6,7 @@
 
     'description': """""",
 
-    'author': "Ali Badran",
+    'author': "Info Strategic",
     'website': "",
 
     # Categories can be used to filter modules in modules listing
@@ -16,7 +16,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'web', 'mail', 'hr'],
+    'depends': ['base', 'web', 'mail'],
 
     # always loaded
     # only loaded in demonstration mode
@@ -25,7 +25,10 @@
 
         'views/chatter_views.xml',
         'views/assets.xml',
+
+        'wizard/chatter_wizard_views.xml'
     ],
+
     'qweb': [
         'static/src/xml/chatter.xml',
     ],

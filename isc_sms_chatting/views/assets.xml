@@ -3,7 +3,7 @@
     <data>
         <template id="sms_assets_backend" name="sms chatting assets" inherit_id="mail.assets_backend">
             <xpath expr="script[last()]" position="after">
-                <script type="text/javascript" src="/sms_chatting/static/src/js/chatter.js"></script>
+                <script type="text/javascript" src="/isc_sms_chatting/static/src/js/chatter.js"></script>
             </xpath>
         </template>
     </data>
