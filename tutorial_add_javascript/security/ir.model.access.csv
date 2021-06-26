@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_tutorial_add_javascript_tutorial_add_javascript,tutorial_add_javascript.tutorial_add_javascript,model_tutorial_add_javascript_tutorial_add_javascript,base.group_user,1,1,1,1
