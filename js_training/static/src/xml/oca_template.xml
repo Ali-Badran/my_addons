@@ -1,0 +1,9 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<templates xml:space="preserve">
+  <div t-name="js_training.ClientAction" class="hello-world">
+    <h1>Hello World!</h1>
+    <div>
+      <t t-esc="widget.info"/>
+    </div>
+  </div>
+</templates>

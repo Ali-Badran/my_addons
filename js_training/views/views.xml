@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="action_oca" model="ir.actions.client">
+            <field name="name">Tutorial Demo</field>
+            <field name="tag">oca.action</field>
+        </record>
+
+        <menuitem name="Hello World" id="hello_world_menu_root" action="action_oca"/>
+    </data>
+</odoo>

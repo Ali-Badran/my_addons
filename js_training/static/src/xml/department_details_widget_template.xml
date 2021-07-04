@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <div t-name="department.details.widget.template">
+        <t t-if="widget.data.department_id.res_id == 2">
+            <a style="cursor: pointer" tabindex="0" class="fa fa-info-circle text-primary"/>
+        </t>
+        <t t-elif="widget.data.department_id.res_id == 1">
+            <a style="cursor: pointer" tabindex="0" class="fa fa-info-circle text-success"/>
+        </t>
+        <t t-else="">
+            <a style="cursor: pointer" tabindex="0" class="fa fa-info-circle text-danger"/>
+        </t>
+    </div>
+</template>

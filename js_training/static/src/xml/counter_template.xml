@@ -1,0 +1,8 @@
+<template xml:space="preserve">
+    <div t-name="counter.widget.template">
+        <span class="counter-value">
+            <t t-esc="widget.count"/>
+        </span>
+        <button>Increment</button>
+    </div>
+</template>
