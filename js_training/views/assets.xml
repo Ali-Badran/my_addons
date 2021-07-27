@@ -6,10 +6,16 @@
                 <!--                <script type="text/javascript" src="/js_training/static/src/js/animal.js"></script>-->
                 <!--                <script type="text/javascript" src="/js_training/static/src/js/dog.js"></script>-->
                 <!--                <script type="text/javascript" src="/js_training/static/src/js/cat.js"></script>-->
-                <script type="text/javascript" src="/js_training/static/src/js/department_details_widget.js"></script>
 <!--                <script type="text/javascript" src="/js_training/static/src/js/main.js"></script>-->
+<!--                <script type="text/javascript" src="/js_training/static/src/js/form_view.js"/>-->
 
-                <script type="text/javascript" src="/js_training/static/src/js/oca.js"></script>
+                <script type="text/javascript" src="/js_training/static/src/js/oca.js"/>
+                <script type="text/javascript" src="/js_training/static/src/js/department_details_widget.js"/>
+                <script type="text/javascript" src="/js_training/static/src/js/form_controller.js"/>
+                <link rel="stylesheet" type="text/scss" href="/js_training/static/src/scss/oca_style.scss"/>
+
+                <script type="text/javascript" src="/js_training/static/src/js/digital_watch.js"/>
+                <link rel="stylesheet" type="text/scss" href="/js_training/static/src/scss/digital_watch_style.scss"/>
             </xpath>
         </template>
     </data>

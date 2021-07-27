@@ -10,6 +10,10 @@
                 <xpath expr="//field[@name='department_id']" position="after">
                     <widget name="dept_info_widget" nolabel="1"/>
                 </xpath>
+
+                <xpath expr="//field[@name='mobile_phone']" position="after">
+                    <p class="asb_js_testing" style="cursor: pointer;">JS Testing</p>
+                </xpath>
             </field>
         </record>
     </data>

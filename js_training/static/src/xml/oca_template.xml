@@ -1,9 +1,8 @@
 <!--?xml version="1.0" encoding="UTF-8"?-->
 <templates xml:space="preserve">
-  <div t-name="js_training.ClientAction" class="hello-world">
-    <h1>Hello World!</h1>
-    <div>
-      <t t-esc="widget.info"/>
+    <div t-name="js_training.ClientAction" class="page_content">
+        <h1>Drawing with mouse events</h1>
+        <canvas id="myPics" width="560" height="360"/>
     </div>
-  </div>
 </templates>
+

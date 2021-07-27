@@ -10,12 +10,13 @@
     'depends': ['base', 'web', 'hr'],
     'data': [
         'views/views.xml',
-        'views/hr_department.xml',
+        'views/hr_employee.xml',
 
         'views/assets.xml'
     ],
     'qweb': [
         'static/src/xml/oca_template.xml',
         'static/src/xml/department_details_widget_template.xml',
+        'static/src/xml/digital_watch_template.xml',
     ],
 }

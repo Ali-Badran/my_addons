@@ -3,12 +3,12 @@ odoo.define('js_training.department_details_widget', function (require) {
 
     const Widget = require('web.Widget');
     const widget_registry = require('web.widget_registry');
+    const core = require('web.core');
+    const QWeb = core.qweb;
+    const _t = core._t;
 
     let DepartmentDetailsWidget = Widget.extend({
         template: 'department.details.widget.template',
-        events: _.extend({}, Widget.prototype.events, {
-            'click .fa-info-circle': '_showDepartmentDetails',
-        }),
 
         init: function (parent, params) {
             this.data = params.data;
@@ -16,26 +16,40 @@ odoo.define('js_training.department_details_widget', function (require) {
         },
 
         willStart: function () {
-            console.log('Will Start');
             return this._super.apply(this, arguments);
         },
 
         start: function () {
-            console.log('Start ');
-            let self = this;
-            let parent = this._super.apply(this, arguments);
-            console.log('Start Parent ', parent);
-            return this._super.apply(this, arguments).then(function () {
-                self._setPopOver();
+            // let self = this;
+            return this._super.apply(this, arguments).then(() => {
+                this._setPopOver();
             });
         },
 
-        _setPopOver: async function () {
-            await this._getDepartmentDetails();
+        _setPopOver: function () {
+            let baseHtml = '' +
+                '<div class="popover" role="tooltip">' +
+                '<div class="arrow"></div>' +
+                '<h3 class="popover-header"></h3>' +
+                '<div class="popover-body"></div>' +
+                '</div>'
+            let contentTemplate = 'department_details_widget_content';
+            let content = $(QWeb.render(contentTemplate, {data: this.data,}));
+            let options = {
+                content: content,
+                html: true,
+                placement: 'left',
+                trigger: 'click',
+                title: _t('Dept Info'),
+                delay: {'show': 200, 'hide': 100,},
+                template: baseHtml,
+            };
+            // Enable popover via JS
+            this.$el.popover(options);
         },
 
-        _getDepartmentDetails() {
-
+        _showDepartmentDetails() {
+            this.$el.find('.fa-info-circle').prop('checked', true);
         },
     });
 

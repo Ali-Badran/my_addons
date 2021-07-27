@@ -11,4 +11,8 @@
             <a style="cursor: pointer" tabindex="0" class="fa fa-info-circle text-danger"/>
         </t>
     </div>
+
+    <div t-name="department_details_widget_content">
+        <h1>Hello World!</h1>
+    </div>
 </template>
