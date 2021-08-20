@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="calendar_template" name="Calendar">
+            <head>
+                <link rel="stylesheet" type="text/css" href="/website_training/static/src/css/calendar.css"/>
+            </head>
+            <div id="calendar"/>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"/>
+            <script type="text/javascript" src="/website_training/static/src/js/calendar.js"/>
+        </template>
+    </data>
+</odoo>

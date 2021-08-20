@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="website_create_new_player_template" name="New Player">
+            <head>
+                <link rel="icon" type="image/png" href="/website_training/static/src/img/alaa_al_deen.png"/>
+                <title>New Player</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta http-equiv='cache-control' content='no-cache'/>
+                <script type="text/javascript" src="/website_training/static/src/js/jquery-3.5.1.min.js"/>
+                <link rel="stylesheet" type="text/css" href="/website_training/static/src/css/players_style.css"/>
+            </head>
+
+            <div class="form-style-2">
+                <div class="form-style-2-heading">Provide your information</div>
+                <form action="" method="post" name="create_player_form" id="create_player"
+                      onsubmit="submitCreatePlayerForm();">
+                    <input name="csrf_token" type="hidden" t-att-value="request.csrf_token()"/>
+                    <label for="name">
+                        <span>Name
+                            <span class="required">*</span>
+                        </span>
+                        <input type="text" class="input-field" id="player-name" value=""/>
+                    </label>
+                    <label for="wins">
+                        <span>Wins</span>
+                        <input type="text" class="input-field" id="player-wins" value=""/>
+                    </label>
+                    <label for="draws">
+                        <span>Draws</span>
+                        <input type="text" class="input-field" id="player-draws" value=""/>
+                    </label>
+                    <label for="losses">
+                        <span>Losses</span>
+                        <input type="text" class="input-field" id="player-losses" value=""/>
+                    </label>
+                    <label>
+                        <input type="submit" value="Submit"/>
+                        <div class="notify-msg hidden-msg">Please, enter required values.</div>
+                    </label>
+                </form>
+            </div>
+
+            <script type="text/javascript" src="/website_training/static/src/js/players_constrains.js"/>
+        </template>
+    </data>
+</odoo>

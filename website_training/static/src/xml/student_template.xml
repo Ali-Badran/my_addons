@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="website_student_template" name="Student">
+            <div id="wrap">
+                <div class="container mt-2">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <form method="post"
+                                  action="/create_student" enctype="multipart/form-data">
+                                <input name="csrf_token" type="hidden" t-att-value="request.csrf_token()"/>
+                                <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                                    <div class="col-lg-3 col-md-4">
+                                        <label class="col-form-label" for="Name">Your Name</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="name"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                                    <div class="col-lg-3 col-md-4">
+                                        <label class="col-form-label" for="Name">Your Age</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="age"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                        <button type="submit">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="website_student_info_template" name="Student Info">
+            <table>
+                <thead>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Age</td>
+                </thead>
+                <tbody>
+                    <t t-foreach="students" t-as="doc">
+                        <tr>
+                            <td>
+                                <t t-esc="doc.id"/>
+                            </td>
+                            <td>
+                                <t t-esc="doc.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="doc.age"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </template>
+    </data>
+</odoo>
