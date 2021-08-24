@@ -2,11 +2,12 @@
 <odoo>
     <data>
         <template id="host_service_page" name="Host Request Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>طلب استضافة</p>
@@ -143,25 +144,36 @@
         </template>
 
         <template id="car_order_service_page" name="Car Order Request Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>أمر مهمة سيارة</p>
                     </div>
                     <div class="services-tab-content">
                         <div class="service-form">
-                            <form>
+                            <form method="post" name="create_player_form" id="create_player"
+                                  onsubmit="submitCreateTransportationRequest()">
+                                <input name="csrf_token" type="hidden" t-att-value="request.csrf_token()"/>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label" for="applicantName">الاسم</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="applicantName"
-                                                />
+                                                <select type="text" class="form-control" id="applicantName">
+                                                    <t t-foreach="employees" t-as="employee_id">
+                                                        <option t-att-value="employee_id"
+                                                                t-att-job-number="employees[employee_id]['job_number']"
+                                                                t-att-department-id="employees[employee_id]['department_id']"
+                                                                t-att-selected="employee_id == default_employee_id">
+                                                            <t t-esc="employees[employee_id]['name']"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -170,9 +182,9 @@
                                             <label class="col-md-3 col-form-label" for="number">الرقم الوظيفي
                                             </label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="number"/>
+                                                <input type="text" class="form-control" id="number"
+                                                       t-att-value="default_job_number"/>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -181,9 +193,13 @@
                                             </label>
                                             <div class="col-md-9">
                                                 <select type="text" class="form-control" id="department">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <option value="-1"> </option>
+                                                    <t t-foreach="departments" t-as="department_id">
+                                                        <option t-att-value="department_id"
+                                                                t-att-selected="department_id == default_department_id">
+                                                        <t t-esc="departments[department_id]"/>
+                                                        </option>
+                                                    </t>
                                                 </select>
                                             </div>
                                         </div>
@@ -191,47 +207,39 @@
                                 </div>
                                 <div class="row">
                                     <div class="divider"></div>
-                                    <div class="row w-100">
+                                    <div class="row">
                                         <div class="col-md-2">
-                                            <label class="sub-title">يلزم بتأمين سيارة</label>
+                                            <label>يلزم بتأمين سيارة</label>
                                         </div>
                                         <div class="row col-md-8">
                                             <div class="col-md-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="buttons1"
-                                                           id="driver"/>
-                                                    <label class="form-check-label" for="driver">
-                                                        سائق
-                                                    </label>
-                                                </div>
+                                                <input class="form-check-input" type="radio" name="driverOptions"
+                                                       id="driver"/>
+                                                <label class="form-check-label" for="driver">
+                                                    سائق
+                                                </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="buttons1"
-                                                           id="noDriver"/>
-                                                    <label class="form-check-label" for="noDriver">
-                                                        بدون سائق
-                                                    </label>
-                                                </div>
+                                                <input class="form-check-input" type="radio" name="driverOptions"
+                                                       id="noDriver"/>
+                                                <label class="form-check-label" for="noDriver">
+                                                    بدون سائق
+                                                </label>
                                             </div>
 
                                             <div class="col-md-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="buttons2"
-                                                           id="in"/>
-                                                    <label class="form-check-label" for="in">
-                                                        داخل أبوظبي
-                                                    </label>
-                                                </div>
+                                                <input class="form-check-input" type="radio" name="destinationOptions"
+                                                       id="in"/>
+                                                <label class="form-check-label" for="in">
+                                                    داخل أبوظبي
+                                                </label>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="buttons2"
-                                                           id="out"/>
-                                                    <label class="form-check-label" for="out">
-                                                        خارج أبوظبي
-                                                    </label>
-                                                </div>
+                                                <input class="form-check-input" type="radio" name="destinationOptions"
+                                                       id="out"/>
+                                                <label class="form-check-label" for="out">
+                                                    خارج أبوظبي
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -240,17 +248,15 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label" for="destination">الذهاب إلى</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="destination"
-                                                />
+                                                <input type="text" class="form-control" id="destination"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="transfer">لنقل السادة</label>
+                                            <label class="col-md-3 col-form-label" for="passengers">لنقل السادة</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="transfer"
-                                                />
+                                                <input type="text" class="form-control" id="passengers"/>
                                             </div>
                                         </div>
                                     </div>
@@ -274,10 +280,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="time">التاريخ والوقت</label>
+                                            <label class="col-md-3 col-form-label" for="dateTime">التاريخ والوقت</label>
                                             <div class="col-md-9">
-                                                <input type="datetime-local" class="form-control" id="time"
-                                                />
+                                                <input type="datetime-local" class="form-control" id="dateTime"/>
                                             </div>
                                         </div>
                                     </div>
@@ -287,30 +292,35 @@
                                             <label class="col-md-3 col-form-label" for="duration">مدة المهمة</label>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="duration"
-                                                       pattern="[0-9]{2}:[0-9]{2}" value="00:00"
+                                                       pattern="[0-9]+:[0-5][0-9]" value="00:00"
+                                                       oninvalid="setCustomValidity('الرجاء ادخال صيغة صحيحة للمدة مثل 05:30')"
+                                                       onchange="try{setCustomValidity('')}catch(e){}"
                                                 />
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
-
+                                <div>
+                                    <button type="submit" class="btn send">إرسال
+                                        <i class="far fa-paper-plane"/>
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
-                    <button type="submit" class="btn send">إرسال
-                        <i class="far fa-paper-plane"></i>
-                    </button>
                 </div>
             </t>
+            <script type="text/javascript" src="/isc_moj_portal/static/src/js/transportation_request.js"/>
         </template>
 
-        <template id="government_housing_service_page" name="Government Housing Request Page">
+        <template id="government_housing_service_page" name="Government Housing Request Page">2
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>إقرار استلام سكن حكومي</p>
@@ -510,11 +520,12 @@
         </template>
 
         <template id="social_situation_service_page" name="Social Situation Request Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>إقرار بالحالة الاجتماعية</p>
@@ -858,11 +869,12 @@
         </template>
 
         <template id="happiness_hotline_page" name="Happiness Hotline Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>الخط الساخن للسعادة</p>
@@ -951,11 +963,12 @@
         </template>
 
         <template id="fazaa_card_request_page" name="Fazaa Card Request Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>طلب التسجيل لفزعة</p>
@@ -1018,11 +1031,12 @@
         </template>
 
         <template id="contact_with_hr_page" name="Contact with HR Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>التواصل مع الموارد البشرية</p>
@@ -1137,11 +1151,12 @@
         </template>
 
         <template id="return_to_duty_notice_page" name="Return to Duty Notice Members of The Judiciary Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>إشعار عودة بالسلطة القضائية</p>
@@ -1227,11 +1242,12 @@
 
         <template id="periodical_form_government_housing_page"
                   name="Periodical Form for Government Housing Request Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>استمارة دورية خاصة بالسكن الحكومي</p>
@@ -1673,11 +1689,12 @@
         </template>
 
         <template id="travel_ticket_request_page" name="Travel Ticket Request Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>طلب صرف رسوم تذاكر السفر</p>
@@ -1847,11 +1864,12 @@
         </template>
 
         <template id="training_program_nomination_page" name="Training Program Nomination Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Services</title>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css" type="text/css"/>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
-                <head>
-                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
-                          type="text/css"/>
-                </head>
                 <div>
                     <div class="page-title">
                         <p>نموذج ترشيح لدورة أو برنامج تدريبي</p>

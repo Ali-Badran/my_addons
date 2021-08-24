@@ -2,6 +2,10 @@
 <odoo>
     <data>
         <template id="moj_portal_home_page" name="Home Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_assets">
+                <title>Home</title>
+            </t>
+
             <t t-call="isc_moj_portal.moj_portal_layout_template">
                 <div class="row no-gutters">
                     <div class="col-md-9">
@@ -97,7 +101,7 @@
                                             <div class="row no-gutters">
                                                 <div class="col-md-3">
                                                     <div class="card-img-box">
-                                                        <img src="/isc_moj_portal/static/assets/img/1.png"
+                                                        <img src="/isc_moj_portal/static/src/img/1.png"
                                                              class="card-img" alt="..."/>
                                                     </div>
                                                 </div>
@@ -119,7 +123,7 @@
                                             <div class="row no-gutters">
                                                 <div class="col-md-3">
                                                     <div class="card-img-box">
-                                                        <img src="/isc_moj_portal/static/assets/img/2.png"
+                                                        <img src="/isc_moj_portal/static/src/img/2.png"
                                                              class="card-img" alt="..."/>
                                                     </div>
                                                 </div>
@@ -141,7 +145,7 @@
                                             <div class="row no-gutters">
                                                 <div class="col-md-3">
                                                     <div class="card-img-box">
-                                                        <img src="/isc_moj_portal/static/assets/img/3.png"
+                                                        <img src="/isc_moj_portal/static/src/img/3.png"
                                                              class="card-img" alt="..."/>
                                                     </div>
                                                 </div>
@@ -225,10 +229,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="card-date-icon">
-                                    <img src="/isc_moj_portal/static/assets/img/scale.png"
-                                         alt="..."/>
+                                    <img src="/isc_moj_portal/static/src/img/scale.png" alt="..."/>
                                 </div>
-                                <img src="/isc_moj_portal/static/assets/img/Capture.PNG"/>
+                                <img src="/isc_moj_portal/static/src/img/Capture.png"/>
                             </div>
                         </div>
                     </div>
