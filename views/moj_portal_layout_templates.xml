@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="moj_portal_layout_template" name="Portal Layout">
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/fontAwesome/css/all.css"
+                      type="text/css"/>
+
+                <script type="text/javascript"
+                        src="/isc_moj_portal/static/src/js/jquery-3.5.1.min.js"/>
+                <script type="text/javascript"
+                        src="/isc_moj_portal/static/src/js/bootstrap-select.min.js"/>
+                <script type="text/javascript"
+                        src="/isc_moj_portal/static/src/js/bootstrap.bundle.js"/>
+                <script type="text/javascript"
+                        src="/isc_moj_portal/static/src/js/bootstrap.js"/>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/bootstrap.css"
+                      type="text/css"/>
+                <link rel="stylesheet" href="/isc_moj_portal/static/src/css/paper-dashboard.css?v=2.0.1"
+                      type="text/css"/>
+
+            </head>
+
+            <div class="wrapper ">
+                <div class="sidebar" data-color="white" data-active-color="danger">
+                    <div class="logo">
+                        <a class="logo-mini">
+                            <div class="logo-image-small">
+                                <t t-if="user_id.partner_id and user_id.partner_id.image_1920">
+                                    <img t-attf-src="data:image/png;base64,{{user_id.partner_id.image_1920}}"
+                                         alt="Avatar"/>
+                                </t>
+                                <t t-else="">
+                                    <img src="/isc_moj_portal/static/assets/img/default-avatar.png"/>
+                                </t>
+                            </div>
+                        </a>
+                        <a class="simple-text logo-normal" href="/my/account">
+                            <t t-if="user_id.partner_id">
+                                <t t-esc="user_id.partner_id.name"/>
+                            </t>
+                            <t t-else="">
+                                اسم المستخدم
+                            </t>
+                        </a>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <ul class="nav">
+                            <li class="active ">
+                                <a href="/home">
+                                    <i class="fad fa-home"></i>
+                                    <p>الرئيسية</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-books"></i>
+                                    <p>ركن القراءة</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-address-book"></i>
+                                    <p>دليل الموظفين</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/services">
+                                    <i class="fad fa-list-alt"></i>
+                                    <p>خدماتي</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-thumbtack"></i>
+                                    <p>المهام الخاصة بي</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-shopping-bag"></i>
+                                    <p>سوقكم</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-cog"></i>
+                                    <p>إدارتي</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-scroll"></i>
+                                    <p>طلباتي</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-comment-alt-lines"></i>
+                                    <p>ملاحظاتي</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-user-chart"></i>
+                                    <p>الاجتماعات</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fad fa-copy"></i>
+                                    <p>ملفات الوزارة</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="main-panel">
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                        <div class="container-fluid">
+                            <div class="navbar-wrapper">
+                                <div class="navbar-toggle">
+                                    <button type="button" class="navbar-toggler">
+                                        <span class="navbar-toggler-bar bar1"></span>
+                                        <span class="navbar-toggler-bar bar2"></span>
+                                        <span class="navbar-toggler-bar bar3"></span>
+                                    </button>
+                                </div>
+                                <a class="navbar-brand" href="javascript:;">
+                                    <img src="/isc_moj_portal/static/assets/img/logo.png"/>
+                                </a>
+                            </div>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-bar navbar-kebab"></span>
+                                <span class="navbar-toggler-bar navbar-kebab"></span>
+                                <span class="navbar-toggler-bar navbar-kebab"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                                <form style="margin: 0;">
+                                    <div class="input-group no-border search-box">
+                                        <input type="text" value="" class="form-control" placeholder="ابحث هنا..."/>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <i class="fal fa-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="navbar-nav">
+                                    <button type="button" class="icon-button">
+                                        <i class="far fa-comment-alt-dots"></i>
+                                        <span class="icon-button__badge" style="background-color:#F0A72A;">2</span>
+                                    </button>
+                                    <button type="button" class="icon-button">
+                                        <i class="far fa-bell"></i>
+                                        <span class="icon-button__badge" style="background-color:#ED4A27;">2</span>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- End Navbar -->
+
+                    <div class="content">
+                        <t t-raw="0"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>

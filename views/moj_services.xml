@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="moj_portal_services_page" name="Services Page">
+            <t t-call="isc_moj_portal.moj_portal_layout_template">
+                <head>
+                    <link rel="stylesheet" href="/isc_moj_portal/static/src/css/servicespage.css"
+                          type="text/css"/>
+                </head>
+                <div class="px-5">
+                    <ul class="nav nav-tabs custom-nav" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link " id="sytem-tab" data-toggle="tab" data-target="#system"
+                                    type="button" role="tab" aria-controls="system" aria-selected="true">الأنظمة
+                                الالكترونية
+                                <i class="fal fa-network-wired"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="court-tab" data-toggle="tab" data-target="#court"
+                                    type="button" role="tab" aria-controls="court" aria-selected="false">خدمات المحاكم
+                                <i class="fal fa-landmark"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="employee-tab" data-toggle="tab" data-target="#employee"
+                                    type="button" role="tab" aria-controls="employee" aria-selected="false">خدمات
+                                الموظفين
+                                <i class="fal fa-user"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="request-tab" data-toggle="tab" data-target="#request"
+                                    type="button" role="tab" aria-controls="request" aria-selected="false">طلب خدمة
+                                <i class="fal fa-plus-circle"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="nav-border"></div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade " id="system" role="tabpanel" aria-labelledby="system-tab">
+                            ...
+                        </div>
+                        <div class="tab-pane fade" id="court" role="tabpanel" aria-labelledby="court-tab">...</div>
+                        <div class="tab-pane fade" id="employee" role="tabpanel" aria-labelledby="employee-tab">...
+                        </div>
+                        <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
+                            <div class="row">
+<!--                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">-->
+<!--                                    <div class="card service-card">-->
+<!--                                        <img class="service-img"-->
+<!--                                             src="/isc_moj_portal/static/assets/img/services/1.png"/>-->
+<!--                                        <p class="service-title">طلب إجازة</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/host_request">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/2.png"/>
+                                            <p class="service-title">طلب استضافة</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/car_order_service">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/3.png"/>
+                                            <p class="service-title">أمر مهمة مركبة</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/social_situation_service">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/4.png"/>
+                                            <p class="service-title">إقرار بالحالة الاجتماعية</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/happiness_hotline">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/5.png"/>
+                                            <p class="service-title">الخط الساخن للسعادة</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/fazaa_card_request">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/6.png"/>
+                                            <p class="service-title">طلب التسجيل لفزعة</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/contact_with_hr">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/7.png"/>
+                                            <p class="service-title">التواصل مع الموارد البشرية</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/government_housing_service">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/8.png"/>
+                                            <p class="service-title">إقرار استلام سكن حكومي</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/return_to_duty_notice_members_of_the_judiciary">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/9.png"/>
+                                            <p class="service-title">إشعار عودة للسلطة القضائية</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/periodical_form_for_government_housing">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/10.png"/>
+                                            <p class="service-title">استمارة دورية خاصة بالسكن الحكومي</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/travel_ticket_request">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/11.png"/>
+                                            <p class="service-title">طلب تذاكر سفر</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <a href="/services/training_program_nomination">
+                                        <div class="card service-card">
+                                            <img class="service-img"
+                                                 src="/isc_moj_portal/static/assets/img/services/12.png"/>
+                                            <p class="service-title">ترشيح لدورة أو برنامج تدريبي</p>
+                                        </div>
+                                    </a>
+                                </div>
+<!--                                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">-->
+<!--                                    <a href="/services">-->
+<!--                                        <div class="card service-card">-->
+<!--                                            <img class="service-img"-->
+<!--                                                 src="/isc_moj_portal/static/assets/img/services/13.png"/>-->
+<!--                                            <p class="service-title">إشعار عودة من الإجازة</p>-->
+<!--                                        </div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">-->
+<!--                                    <a href="/services">-->
+<!--                                        <div class="card service-card">-->
+<!--                                            <img class="service-img"-->
+<!--                                                 src="/isc_moj_portal/static/assets/img/services/14.png"/>-->
+<!--                                            <p class="service-title">إقرار بعدم عمل الزوجة</p>-->
+<!--                                        </div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">-->
+<!--                                    <a href="/services">-->
+<!--                                        <div class="card service-card">-->
+<!--                                            <img class="service-img"-->
+<!--                                                 src="/isc_moj_portal/static/assets/img/services/15.png"/>-->
+<!--                                            <p class="service-title">شهادة لمن يهمه الأمر</p>-->
+<!--                                        </div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
