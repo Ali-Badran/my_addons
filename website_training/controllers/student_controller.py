@@ -30,6 +30,11 @@ class Student(http.Controller):
         print('Pascal\n\n')
         return http.request.render('website_training.calendar_template')
 
+    @http.route('/pouUp', auth='public')
+    def set_player_information(self):
+        print('Pascal\n\n')
+        return http.request.render('website_training.pop_up_template')
+
     # @http.route('/create_student', type='http', auth='public', website=True)
     # def create_students(self, **kw):
     #     print('Pascal2\n\n', kw)
@@ -48,8 +53,8 @@ class Student(http.Controller):
 #             'objects': http.request.env['temp.temp'].search([]),
 #         })
 
-#     @http.route('/temp/temp/objects/<model("temp.temp"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('temp.object', {
-#             'object': obj
-#         })
+    # @http.route('/temp/temp/objects/<model("temp.temp"):obj>/', auth='public')
+    # def object(self, obj, **kw):
+    #     return http.request.render('temp.object', {
+    #         'object': obj
+    #     })

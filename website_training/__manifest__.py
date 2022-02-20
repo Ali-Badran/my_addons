@@ -27,6 +27,7 @@
         'views/website_menu_views.xml',
         'views/student_views.xml',
         'views/calendar_template.xml',
+        'views/pop_up_template.xml',
         'static/src/xml/student_template.xml',
         'static/src/xml/students_information_template.xml',
         'static/src/xml/create_new_player_template.xml',
