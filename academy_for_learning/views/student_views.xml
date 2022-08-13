@@ -4,8 +4,11 @@
             <field name="name">view.academy.student.tree</field>
             <field name="model">academy.student</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree background-carmine="not parent_id" background-ghost="state == 'ghost'"
+                      background-seed="state == 'seed'" background-soil="state == 'soil'"
+                      background-olive="state == 'olive'">
                     <field name="name"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
